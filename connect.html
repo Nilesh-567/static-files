@@ -9,7 +9,10 @@
 <body>
     <h1>Project Records inside clinet-side</h1>
     <button id="fetchRecords">Fetch Records</button>
-    <pre id="output"></pre>
+     <div class="response-container" id="response-container">
+    <h2>Response Data</h2>
+    <pre id="response-data"></pre>
+     </div>
     <script>
         // Connect to the server
         const socket = io('http://localhost:3002');
@@ -21,7 +24,7 @@
 
         // Listen for merged records from the server
         socket.on('recordsData', (data) => {
-            document.getElementById('output').textContent = JSON.stringify(data, null, 2); // Display the data
+            document.getElementById('response-data').textContent = JSON.stringify(data, null, 2); // Display the data
         });
 
         // Handle error messages
